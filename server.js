@@ -7,4 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {console.log(`The magic happens on port ${port}.`);});
+app.listen(port, () => {console.log(`Its going down on port ${port}.`);});
+
+massive(peocess.env.CONNECTION_STRING).then(dbInstance => {
+  app.set('db', dbInstance)
+}).catch(err => console.log(err));
